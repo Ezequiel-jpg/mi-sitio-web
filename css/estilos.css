@@ -224,6 +224,18 @@ h1,h2,h3{
     padding: 1.5rem;
     border-radius: .5rem;
 }
+.checkbox-label {
+  color: var(--blanco);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-label a {
+  color: var(--primario);
+  text-decoration: underline;
+}
 /*Productos*/
 .image{
     background-image: url(../images/servicios.jpg);
@@ -262,6 +274,18 @@ iframe, #map{
 /* Footer*/
 .footer{
     text-align: center;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  flex-wrap: wrap;
+}
+
+.logo-footer img {
+  max-width: 100px;
+  height: auto;
 }
 footer p {
   font-size: 1.4rem;
