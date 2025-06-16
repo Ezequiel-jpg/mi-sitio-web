@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <meta name="description" content="Presupuesto para desarrollo web, diseño y e-commerce.">
   <title>Presupuesto | Mi Sitio</title>
-  <link rel="stylesheet" href="../css/estilos.css" />
+  <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 <body>
@@ -23,43 +23,51 @@
 
   <main class="contenedor sombra">
     <section>
-      <h2>Contáctanos</h2>
-      <form class="formulario" aria-label="Formulario de presupuesto">
+      <h2>Contactos</h2>
+      <form class="formulario" aria-label="Formulario de contacto">
+
         <fieldset>
-          <legend>Contáctanos llenando todos los campos</legend>
+
+          <legend>Contáctacnos llenando toods los campos </legend>
 
           <div class="contenedor-campos">
-            <div class="campo">
-              <label for="nombre">Nombre</label>
-              <input class="input-text" type="text" id="nombre" placeholder="Tu Nombre" required />
-            </div>
 
             <div class="campo">
+              <label for="nombre">Nombre</label>
+              <input class="input-text" type="text" id="nombre" placeholder="Tu Nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,50}"
+               title="Solo letras, mínimo 3 caracteres" required>
+            </div>
+            
+            <div class="campo">
               <label for="telefono">Teléfono</label>
-              <input class="input-text" type="tel" id="telefono" placeholder="Tu Teléfono" required />
+              <input class="input-text" type="tel" id="telefono" placeholder="Tu Teléfono" pattern="[0-9]{7,15}"
+               title="Debe contener solo números, entre 7 y 15 dígitos" required>
             </div>
 
             <div class="campo">
               <label for="correo">Correo</label>
-              <input class="input-text" type="email" id="correo" placeholder="Tu Email" required />
+              <input class="input-text" type="email" id="correo" placeholder="Tu Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required>
             </div>
-
+            
             <div class="campo">
-              <label for="mensaje">Mensaje</label>
+              <label>Mensaje</label>
               <textarea class="input-text"></textarea>
             </div>
-
+            
             <div class="campo">
               <input type="checkbox" id="privacidad" required>
               <label for="privacidad" class="checkbox-label">Acepto la <a href="privacidad.html." target="_blank" rel="noopener noreferrer">Política de Privacidad</a></label>
             </div>
-
-          </div>
+          </div><!--.contenedor-campos-->
           
           <div class="alinear-derecha flex">
-            <input class="boton" w-100 type="submit" value="Enviar">
+            <input class="boton" type="submit" value="Enviar">
           </div>
+          
+
         </fieldset>
+
       </form>
     </section>
   </main>
@@ -93,11 +101,9 @@
   </a>
 </section>
   <!-- Logo -->
-    <div class="logo-footer">
-      <img src="../images/logo.png" alt="Logo Digital Technology" />
-      </div>
-    </div>
+    <div class="logo-footer"><img src="../assets/images/logo.png" alt="Logo Digital Technology"></div>
     <p>&copy; 2025 Mi Sitio. <a href="./privacidad.html">Política de Privacidad</a>. ¡Gracias por visitar!</p>
   </footer>
+  
 </body>
 </html>

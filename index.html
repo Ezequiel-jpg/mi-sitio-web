@@ -25,10 +25,12 @@
   <section class="hero">
     <div class="contenido-hero">
       <h2 >Mi Primera Página <span>Web</span></h2>
-
-      <div class="ubicacion" aria-label="Ubicación en el mapa">
-        <!--Ícono de ubicación-->
-        <a href="../views/contacto.html" ><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#d1df11"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+      <!--Ícono de ubicación-->
+      <div class="ubicacion">
+        <a href="../views/contacto.html" aria-label="Ir a la página de contacto"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#d1df11"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
         </svg>
         </a>
 
@@ -94,17 +96,20 @@
 
             <div class="campo">
               <label for="nombre">Nombre</label>
-              <input class="input-text" type="text" id="nombre" placeholder="Tu Nombre" required>
+              <input class="input-text" type="text" id="nombre" placeholder="Tu Nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,50}"
+               title="Solo letras, mínimo 3 caracteres" required>
             </div>
             
             <div class="campo">
               <label for="telefono">Teléfono</label>
-              <input class="input-text" type="tel" id="telefono" placeholder="Tu Teléfono" required>
+              <input class="input-text" type="tel" id="telefono" placeholder="Tu Teléfono" pattern="[0-9]{7,15}"
+               title="Debe contener solo números, entre 7 y 15 dígitos" required>
             </div>
 
             <div class="campo">
               <label for="correo">Correo</label>
-              <input class="input-text" type="email" placeholder="Tu Email">
+              <input class="input-text" type="email" id="correo" placeholder="Tu Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required>
             </div>
             
             <div class="campo">
@@ -119,7 +124,7 @@
           </div><!--.contenedor-campos-->
           
           <div class="alinear-derecha flex">
-            <input class="boton" w-100 type="submit" value="Enviar">
+            <input class="boton" type="submit" value="Enviar">
           </div>
           
 
@@ -160,10 +165,7 @@
 </section>
 
     <!-- Logo -->
-    <div class="logo-footer">
-      <img src="../images/logo.png" alt="Logo Digital Technology" />
-      </div>
-    </div>
+    <div class="logo-footer"><img src="../assets/images/logo.png" alt="Logo Digital Technology"></div>
 
     <p>&copy; 2025 Mi Sitio. <a href="./privacidad.html">Política de Privacidad</a>. ¡Gracias por visitar!</p>
   </footer>
