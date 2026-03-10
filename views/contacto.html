@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Presupuesto para desarrollo web, diseño y e-commerce.">
   <title>Ubicación | Mi Sitio</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
@@ -17,7 +18,9 @@
         <a href="../index.html">Inicio</a>
         <a href="../views/productos.html">Productos</a>
         <a href="../views/presupuesto.html">Presupuesto</a>
+        <a href="../views/galeria.html">Galería</a>
         <a href="../views/contacto.html" class="activo">Contacto</a>
+        
       </nav>
     </div>
   </header>
@@ -25,10 +28,12 @@
   <main class="contenedor sombra">
     <h2>Mapa</h2>
     <p>Nos encontramos en Madrid, España.</p>
-
-    <div id="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194348.23369181997!2d-3.8443459223903176!3d40.437837282443894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid!5e0!3m2!1ses!2ses!4v1748900034478!5m2!1ses!2ses" ></iframe>
+  
+    <div id="map" style="height: 400px; width: 100%; margin-bottom: 20px;"></div>
+    <div class="filtros-container"> 
+      <button class="boton" onclick="calcularRuta()">Calcular Ruta desde mi ubicación</button>
     </div>
+    
   </main>
  
   <footer class="footer">
@@ -63,6 +68,12 @@
     
     <div class="logo-footer"><img src="../assets/images/logo.png" alt="Logo Digital Technology"></div>
     <p>&copy; 2025 Mi Sitio. <a href="./privacidad.html">Política de Privacidad</a>. ¡Gracias por visitar!</p>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+    <script src="../js/contacto.js"></script>
+
     
   </footer>
 </body>

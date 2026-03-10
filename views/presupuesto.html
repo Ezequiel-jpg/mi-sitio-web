@@ -16,7 +16,9 @@
         <a href="../index.html">Inicio</a>
         <a href="../views/productos.html">Productos</a>
         <a href="../views/presupuesto.html" class="activo">Presupuesto</a>
+        <a href="../views/galeria.html">Galería</a>
         <a href="../views/contacto.html">Contacto</a>
+        
       </nav>
     </div>
   </header>
@@ -24,7 +26,8 @@
   <main class="contenedor sombra">
     <section>
       <h2>Contactos</h2>
-      <form class="formulario" aria-label="Formulario de contacto">
+      <form class="formulario" onsubmit="return validarFormulario()">
+
 
         <fieldset>
 
@@ -35,6 +38,12 @@
             <div class="campo">
               <label for="nombre">Nombre</label>
               <input class="input-text" type="text" id="nombre" placeholder="Tu Nombre" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,50}"
+               title="Solo letras, mínimo 3 caracteres" required>
+            </div>
+
+            <div class="campo">
+              <label for="apellido">Apellido</label>
+              <input class="input-text" type="text" id="apellido" placeholder="Tu Apellido" pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]{3,50}"
                title="Solo letras, mínimo 3 caracteres" required>
             </div>
             
@@ -53,18 +62,50 @@
             <div class="campo">
               <label>Mensaje</label>
               <textarea class="input-text"></textarea>
-            </div>
+            </div><br>
+
             
+              <div class="campo campo-espacio">
+                <h3>Cálculo de Presupuesto</h3>
+    
+                <!-- PRODUCTO (Mínimo 3 opciones con precio) -->
+                <label for="producto">Seleccione un producto:</label>
+                <select id="producto" class="input-text">
+                    <option value="0">Seleccione...</option>
+                    <option value="500">Web Corporativa (500€)</option>
+                    <option value="800">E-commerce (800€)</option>
+                    <option value="1200">Aplicación Web (1200€)</option>
+                </select>
+
+                <!-- PLAZO (Input numérico para descuento) -->
+                <label for="plazo">Plazo de entrega (meses):</label>
+                <input type="number" id="plazo" class="input-text" min="1" value="1">
+                <small>Si el plazo es > 6 meses, obtienes un 10% de descuento.</small>
+
+                <!-- EXTRAS (Checkboxes) -->
+                <div class="extras">
+                    <p>Añadir extras:</p>
+                    <label><input type="checkbox" class="extra" value="150"> SEO (+150€)</label><br>
+                    <label><input type="checkbox" class="extra" value="100"> Mantenimiento (+100€)</label><br>
+                    <label><input type="checkbox" class="extra" value="200"> Hosting Premium (+200€)</label>
+                </div>
+
+                <!-- PRESUPUESTO FINAL (Se actualiza solo) -->
+                <div class="resultado-presupuesto">
+                    <h4>Presupuesto Estimado: <span id="precio-total">0€</span></h4>
+                </div>
+            </div><br>
+
+           
             <div class="campo">
               <input type="checkbox" id="privacidad" required>
-              <label for="privacidad" class="checkbox-label">Acepto la <a href="privacidad.html." target="_blank" rel="noopener noreferrer">Política de Privacidad</a></label>
+              <label for="privacidad" class="checkbox-label">Acepto la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></label>
             </div>
           </div><!--.contenedor-campos-->
-          
+
           <div class="alinear-derecha flex">
             <input class="boton" type="submit" value="Enviar">
           </div>
-          
 
         </fieldset>
 
@@ -99,11 +140,13 @@
       <path d="M22 4.01c-1 .49-1.98 .689-3 .99c-1.121-1.265-2.783-1.335-4.38-.737s-2.643 2.06-2.62 3.737v1c-3.245 .083-6.135-1.395-8-4c0 0-4.182 7.433 4 11c-1.872 1.247-3.739 2.088-6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c0-.249 1.51-2.772 1.818-4.013z" />
     </svg>
   </a>
-</section>
+  </section>
   <!-- Logo -->
     <div class="logo-footer"><img src="../assets/images/logo.png" alt="Logo Digital Technology"></div>
     <p>&copy; 2025 Mi Sitio. <a href="./privacidad.html">Política de Privacidad</a>. ¡Gracias por visitar!</p>
   </footer>
-  
+
+  <script defer src="../js/script.js"></script>
+  <script defer src="../js/validacion.js"></script>
 </body>
 </html>

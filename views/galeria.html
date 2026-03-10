@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería | Mi Sitio</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <h1 class="titulo">Galería</h1>
+
+    <div class="nav-bg">
+      <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+        <a href="../index.html">Inicio</a>
+        <a href="../views/productos.html">Productos</a>
+        <a href="../views/presupuesto.html">Presupuesto</a>
+        <a href="../views/galeria.html" class="activo">Galería</a>
+        <a href="../views/contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor sombra">
+    <h2>Galería de imágenes</h2>
+
+    <div class="galeria" id="galeria"></div>
+
+    <div class="filtros-container">
+      <button class="filtro activo" data-categoria="todos">Ver Todo</button>
+      <button class="filtro" data-categoria="hardware">Hardware</button>
+      <button class="filtro" data-categoria="software">Software</button>
+      <button class="filtro" data-categoria="ia">IA</button>
+      <button class="filtro" data-categoria="robotica">Robótica</button>
+    </div>
+
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" style="display:none;">
+    <img id="lightbox-img" src="" alt="Vista ampliada">
+  </div>
+
+    
+  
+  
+  <footer class="footer">
+
+    <section class="redes-sociales" aria-label="Redes sociales">
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <!-- SVG Facebook -->
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <!-- SVG Instagram -->
+      </a>
+
+      <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+        <!-- SVG Twitter -->
+      </a>
+    </section>
+
+    <div class="logo-footer">
+      <img src="../assets/images/logo.png" alt="Logo Digital Technology">
+    </div>
+
+    <p>&copy; 2025 Mi Sitio. <a href="./privacidad.html">Política de Privacidad</a>. ¡Gracias por visitar!</p>
+  </footer>
+
+  <script defer src="../js/galeria.js"></script>
+
+</body>
+</html>
