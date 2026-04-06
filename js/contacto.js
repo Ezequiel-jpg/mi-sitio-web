@@ -1,34 +1,50 @@
-window.onload = function() {
-    // Coordenadas de Madrid
-    const miNegocio = [40.4167, -3.7037]; 
 
-    // Inicializar mapa
-    const map = L.map('map')
+    const miNegocio = [40.4167, -3.7037];
 
-    // Cargar capas de OpenStreetMap
+    
+    const map = L.map('map').setView(miNegocio, 14);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Añadir marcador de la empresa
-    L.marker(miNegocio).addTo(map)
-        .bindPopup('<b>Digital Technology</b><br>Estamos aquí.')
-        .openPopup();
+    // ── Marcador fijo del negocio (siempre visible) 
+    const marcadorNegocio = L.marker(miNegocio)
+      .addTo(map)
+      .bindPopup('<strong>¡Estamos aquí!</strong><br>Madrid, España')
+      .openPopup();
 
-    // Función para el botón de calcular ruta
-    window.calcularRuta = function() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(pos => {
-                const userPos = [pos.coords.latitude, pos.coords.longitude];
-                L.marker(userPos).addTo(map).bindPopup('Tu ubicación').openPopup();
-                const polyline = L.polyline([userPos, miNegocio], {color: 'red'}).addTo(map);
-                map.fitBounds(polyline.getBounds());
-            }, () => {
-                alert("No se pudo obtener tu ubicación. Revisa los permisos de tu navegador.");
-            });
-        } else {
-            alert("Tu navegador no soporta geolocalización.");
+    // ── Calcular ruta desde la ubicación del usuario ──────────────────────
+    function calcularRuta(posicion) {
+      const latUsuario = posicion.coords.latitude;
+      const lonUsuario = posicion.coords.longitude;
+
+      L.Routing.control({
+        waypoints: [
+          L.latLng(latUsuario, lonUsuario), // Punto A: usuario
+          L.latLng(miNegocio[0], miNegocio[1]) // Punto B: negocio
+        ],
+        language: 'es',
+        addWaypoints: false,
+        routeWhileDragging: false,
+        draggableWaypoints: false,
+        show: true,
+        collapsible: true,
+        lineOptions: {
+          styles: [{ color: '#2563eb', opacity: 0.7, weight: 6 }]
         }
-    };
-};
+      }).addTo(map);
+    }
+
+    // ── Manejo de error de geolocalización ────────────────────────────────
+    function errorGeolocalizacion(error) {
+      console.warn('Geolocalización no disponible:', error.message);
+      // El marcador del negocio ya está visible, no hace falta hacer nada más
+    }
+
+    // ── Solicitar ubicación al usuario ────────────────────────────────────
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(calcularRuta, errorGeolocalizacion);
+    } else {
+      console.warn('Este navegador no soporta geolocalización.');
+    }

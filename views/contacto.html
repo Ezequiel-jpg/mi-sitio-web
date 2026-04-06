@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Presupuesto para desarrollo web, diseño y e-commerce.">
+  <meta name="description" content="Ubicación y cómo llegar a nuestro negocio.">
   <title>Ubicación | Mi Sitio</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
 </head>
 
 <body>
+
   <header>
     <h1 class="titulo">Mi Ubicación</h1>
-
     <div class="nav-bg">
       <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
         <a href="../index.html">Inicio</a>
@@ -20,66 +22,53 @@
         <a href="../views/presupuesto.html">Presupuesto</a>
         <a href="../views/galeria.html">Galería</a>
         <a href="../views/contacto.html" class="activo">Contacto</a>
-        
       </nav>
     </div>
   </header>
 
   <main class="contenedor sombra">
-    <h2>Mapa</h2>
-    <p>Nos encontramos en Madrid, España.</p>
+    <h2>Cómo llegar</h2>
+    <p>Nos encontramos en Madrid, España. El mapa calculará la ruta desde tu ubicación automáticamente.</p>
+
   
-    <div id="map" style="height: 400px; width: 100%; margin-bottom: 20px;"></div>
-    <div class="filtros-container"> 
-      <button class="boton" onclick="calcularRuta()">Calcular Ruta desde mi ubicación</button>
-    </div>
-    
+    <div id="map" style="width: 100%; height: 500px; border-radius: 8px;"></div>
   </main>
- 
+
   <footer class="footer">
     <section class="redes-sociales" aria-label="Redes sociales">
-  <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="icon icon-tabler icon-tabler-brand-facebook">
-      <path d="M7 10v4h3v7h4v-7h3l1-4h-4v-2a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H7" />
-    </svg>
-  </a>
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 10v4h3v7h4v-7h3l1-4h-4v-2a1 1 0 0 1 1-1h3V3h-3a5 5 0 0 0-5 5v2H7" />
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z" />
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0" />
+          <path d="M16.5 7.5v.01" />
+        </svg>
+      </a>
+      <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 4.01c-1 .49-1.98 .689-3 .99c-1.121-1.265-2.783-1.335-4.38-.737s-2.643 2.06-2.62 3.737v1c-3.245 .083-6.135-1.395-8-4c0 0-4.182 7.433 4 11c-1.872 1.247-3.739 2.088-6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c0-.249 1.51-2.772 1.818-4.013z" />
+        </svg>
+      </a>
+    </section>
 
-  <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="icon icon-tabler icon-tabler-brand-instagram">
-      <path d="M4 8a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-8a4 4 0 0 1-4-4z" />
-      <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0" />
-      <path d="M16.5 7.5v.01" />
-    </svg>
-  </a>
-
-  <a href="https://x.com/" target="_blank" aria-label="X (Twitter)">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="icon icon-tabler icon-tabler-brand-twitter">
-      <path d="M22 4.01c-1 .49-1.98 .689-3 .99c-1.121-1.265-2.783-1.335-4.38-.737s-2.643 2.06-2.62 3.737v1c-3.245 .083-6.135-1.395-8-4c0 0-4.182 7.433 4 11c-1.872 1.247-3.739 2.088-6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c0-.249 1.51-2.772 1.818-4.013z" />
-    </svg>
-  </a>
-</section>
-<!-- Logo -->
-    
-    <div class="logo-footer"><img src="../assets/images/logo.png" alt="Logo Digital Technology"></div>
+    <div class="logo-footer">
+      <img src="../assets/images/logo/logo.png" alt="Logo Digital Technology">
+    </div>
     <p>&copy; 2025 Mi Sitio. <a href="./privacidad.html">Política de Privacidad</a>. ¡Gracias por visitar!</p>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-
-    <script src="../js/contacto.js"></script>
-
-    
   </footer>
+
+  
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+  <script defer src="../js/contacto.js"></script>
+
 </body>
 </html>
-
-
-
-
-

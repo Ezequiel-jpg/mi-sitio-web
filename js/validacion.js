@@ -60,3 +60,35 @@ function calcular() {
         resultado.style.color = "black";
     }
 }
+
+
+async function cargarNoticias() {
+    try {
+        const respuesta = await fetch("../data/noticia.json");
+        const noticias = await respuesta.json();
+
+        // Ordenar por fecha descendente
+        noticias.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+        const contenedor = document.getElementById("lista-noticias");
+        contenedor.innerHTML = "";
+
+        noticias.forEach(noticia => {
+            const item = document.createElement("div");
+            item.classList.add("noticia");
+
+            item.innerHTML = `
+                <h3>${noticia.titulo}</h3>
+                <p>${noticia.descripcion}</p>
+                <span class="fecha">${new Date(noticia.fecha).toLocaleDateString()}</span>
+            `;
+
+            contenedor.appendChild(item);
+        });
+
+    } catch (error) {
+        console.error("Error cargando noticias:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", cargarNoticias);

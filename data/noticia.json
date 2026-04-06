@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "titulo": "Lanzamiento de la Nueva Web",
+    "descripcion": "Hemos renovado nuestro portal para ofrecer mejores servicios digitales.",
+    "fecha": "2023-10-25"
+  },
+  {
+    "id": 2,
+    "titulo": "Soporte 24/7",
+    "descripcion": "Ahora contamos con atención al cliente las 24 horas del día.",
+    "fecha": "2023-10-20"
+  }
+]

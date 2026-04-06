@@ -4,24 +4,24 @@ function cambiarImagen(ruta) {
 // Base de datos de imágenes por categoría
 const imagenes = [
   // HARDWARE
-  { categoria: "hardware", src: "../assets/images/hardware-1.jpg" },
-  { categoria: "hardware", src: "../assets/images/hardware-2.jpg" },
-  { categoria: "hardware", src: "../assets/images/hardware-3.jpg" },
+  { categoria: "hardware", src: "../assets/images/hardware/hardware-1.jpg" },
+  { categoria: "hardware", src: "../assets/images/hardware/hardware-2.jpg" },
+  { categoria: "hardware", src: "../assets/images/hardware/hardware-3.jpg" },
 
   // SOFTWARE
-  { categoria: "software", src: "../assets/images/software-1.webp" },
-  { categoria: "software", src: "../assets/images/software-2.jpg" },
-  { categoria: "software", src: "../assets/images/software-3.webp" },
+  { categoria: "software", src: "../assets/images/software/software-1.webp" },
+  { categoria: "software", src: "../assets/images/software/software-2.jpg" },
+  { categoria: "software", src: "../assets/images/software/software-3.webp" },
 
   // IA
-  { categoria: "ia", src: "../assets/images/ia-1.avif" },
-  { categoria: "ia", src: "../assets/images/ia-2.avif" },
-  { categoria: "ia", src: "../assets/images/ia-3.avif" },
+  { categoria: "ia", src: "../assets/images/ia/ia-1.avif" },
+  { categoria: "ia", src: "../assets/images/ia/ia-2.avif" },
+  { categoria: "ia", src: "../assets/images/ia/ia-3.avif" },
 
   // ROBÓTICA
-  { categoria: "robotica", src: "../assets/images/robotica-1.avif" },
-  { categoria: "robotica", src: "../assets/images/robotica-2.avif" },
-  { categoria: "robotica", src: "../assets/images/robotica-3.avif" }
+  { categoria: "robotica", src: "../assets/images/robotica/robotica-1.avif" },
+  { categoria: "robotica", src: "../assets/images/robotica/robotica-2.avif" },
+  { categoria: "robotica", src: "../assets/images/robotica/robotica-3.avif" }
 ];
 
 const galeria = document.getElementById("galeria");
